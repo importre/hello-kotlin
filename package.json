@@ -9,7 +9,7 @@
     "email": "jaeweheo@gmail.com",
     "url": "importre.com"
   },
-  "bin": "./build/install/hello-kotlin/bin/hello-kotlin",
+  "bin": "dist/bin/hello-kotlin",
   "engines": {
     "node": ">=4"
   },
@@ -19,7 +19,7 @@
     "test": "./gradlew -q run"
   },
   "files": [
-    "./build/install/hello-kotlin/"
+    "dist"
   ],
   "keywords": [
     "hello",

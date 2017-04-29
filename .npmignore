@@ -1,4 +1,1 @@
-!build/
-build/*
-!build/install/
-!build/install/*
+!dist/

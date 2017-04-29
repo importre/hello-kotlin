@@ -49,3 +49,11 @@ buildConfig {
 sourceSets {
     main.java.srcDirs += "${buildDir}/gen/buildconfig/src/main"
 }
+
+installDist.doLast {
+    delete "${rootProject.projectDir}/dist"
+    copy {
+        from "$buildDir/install/hello-kotlin"
+        into "${rootProject.projectDir}/dist"
+    }
+}
