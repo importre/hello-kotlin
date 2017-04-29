@@ -16,7 +16,7 @@
   "scripts": {
     "build": "./gradlew -q clean iD",
     "prepublish": "npm run build",
-    "test": "./gradlew -q run"
+    "test": "./gradlew test"
   },
   "files": [
     "dist"
