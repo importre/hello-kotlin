@@ -1,0 +1,51 @@
+import groovy.json.JsonSlurper
+
+buildscript {
+    ext {
+        kotlin_version = '1.1.2-2'
+        junit_version = '4.12'
+    }
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id "de.fuerstenau.buildconfig" version "1.1.8"
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+def parsedJson = new JsonSlurper().parseText(file('package.json').text)
+
+group = 'com.importre.example'
+version = parsedJson.version
+
+mainClassName = "${group}.MainKt"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    compile 'com.xenomachina:kotlin-argparser:2.0.0'
+
+    testCompile "junit:junit:$junit_version"
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+}
+
+buildConfig {
+    packageName = group
+    version = version
+}
+
+sourceSets {
+    main.java.srcDirs += "${buildDir}/gen/buildconfig/src/main"
+}

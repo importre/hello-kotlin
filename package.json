@@ -1,0 +1,29 @@
+{
+  "name": "hello-kotlin",
+  "version": "0.0.0",
+  "description": "Hello, Kotlin!",
+  "license": "MIT",
+  "repository": "importre/hello-kotlin",
+  "author": {
+    "name": "Jaewe Heo",
+    "email": "jaeweheo@gmail.com",
+    "url": "importre.com"
+  },
+  "bin": "./build/install/hello-kotlin/bin/hello-kotlin",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "build": "./gradlew -q clean iD",
+    "prepublish": "npm run build",
+    "test": "./gradlew -q run"
+  },
+  "files": [
+    "./build/install/hello-kotlin/"
+  ],
+  "keywords": [
+    "hello",
+    "kotlin",
+    "cli"
+  ]
+}
